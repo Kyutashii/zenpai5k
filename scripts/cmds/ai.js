@@ -4,7 +4,7 @@ const manilaTime = moment.tz('Asia/Manila');
 const formattedDateTime = manilaTime.format('MMMM D, YYYY h:mm A');
 
 const Prefixes = [
-  'gpt',
+  'zep',
   'ai',
   'Robot',
   'bot',
