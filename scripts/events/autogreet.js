@@ -1,3 +1,4 @@
+const allOnEvent = global.GoatBot.onEvent;
 const fs = require("fs");
 const cron = require("node-cron");
 const greetings = {
