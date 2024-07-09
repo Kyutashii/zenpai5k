@@ -23,9 +23,11 @@ module.exports = {
 			session2: "noon",
 			session3: "afternoon",
 			session4: "evening",
-			leaveType1: "𝗹𝗲𝗳𝘁",
-			leaveType2: "𝘄𝗮𝘀 𝗸𝗶𝗰𝗸𝗲𝗱 𝗳𝗿𝗼𝗺",
-			defaultLeaveMessage: "𝗴𝗼𝗼𝗱 𝗯𝘆𝗲 𝗭𝗲𝗻𝗽𝗮𝗶 {userNameTag}.\n\n📜𝗿𝗲𝗮𝘀𝗼𝗻: {type} 𝘁𝗼 𝘁𝗵𝗲 𝗴𝗿𝗼𝘂𝗽ಥ_ಥ"
+			leaveType1: "𝗅𝖾𝖿𝗍",
+			leaveType2: "𝗐𝖺𝗌 𝗄𝗂𝖼𝗄𝖾𝖽 𝖿𝗋𝗈𝗆",
+			defaultLeaveMessage: "(\ (\\n(„• ֊ •„) 𝗚𝗼𝗼𝗱 𝗯𝘆𝗲 𝗦𝗲𝗻𝗽𝗮𝗶 {userNameTag}\n\n━O━O━━━━━━━━━\n𝗥𝗲𝗮𝘀𝗼𝗻: {type} 𝗍𝗁𝖾 𝗀𝗋𝗈𝗎𝗉.\n━━━━━━━━━━━━━\n𝑠𝑒𝑒 𝑦𝑜𝑢 𝑎𝑔𝑎𝑖𝑛 𝑢𝑠𝑒𝑟'𝑠 😁"
+		}
+	},
 
 	onStart: async ({ threadsData, message, event, api, usersData, getLang }) => {
 		if (event.logMessageType == "log:unsubscribe")
