@@ -20,7 +20,7 @@ module.exports = {
     category: "📡𝗨𝗽𝘁𝗶𝗺𝗲&𝗽𝗶𝗻𝗴📊",
     guide: {en:"{p}ping"}
   },
-  onStart: function ({ api, message,event, getLang,args}) {
+  onStart: function ({ api, message,event, getLang,args,usersData, threadsData}) {
     const startTime = Date.now();
 const formattedTime = manilaTime.format(' h:mm A');
 
@@ -34,16 +34,34 @@ const randomFact = uptimeFacts[Math.floor(Math.random() * uptimeFacts.length)];
       const endTime = Date.now();
       const botPing = endTime - startTime;
       const apiPing = sentMessage.timestamp - startTime;
+const now = moment();
+      const nehallovesMetaServerTime = now.format('DD-MMMM-Y || hh.mm.ss A');
 
-      const timeStart = Date.now();
+      const nehallovesMetaTotalMemory = `${Math.round(os.totalmem() / (1024 * 1024 * 1024))} GB`;
+      const nehallovesMetaUsers = await usersData.getAll();
+      const nehallovesMetaThreads = await threadsData.getAll(); 
+      const nehallovesMetaOperatingSystem = `${os.type()} ${os.release()}`;
+      const nehallovesMetaCpuInfo = `${os.cpus()[0].model} (${os.cpus().length} cores)`;
+
+      const nehallovesMetaEndTime = Date.now();
+     
 
       let pingMessage = `👻𝗣𝗼𝗻𝗴!\n\n┏━━━━━━━━━━━━━━━━┓\n   🤖◉𝗭𝗘𝗣𝗛𝗬𝗥𝗨𝗦 𝗨𝗣𝗧𝗜𝗠𝗘:\n┗━━━━━━━━━━━━━━━━┛\n\n━━━━━━━━━━━━━━━━━━\n📡 𝗨𝗽𝘁𝗶𝗺𝗲: ${hours} 𝗵𝗼𝘂𝗿𝘀\n               ⏰${minutes} 𝗺𝗶𝗻𝘂𝘁𝗲𝘀\n               ⏱${seconds} 𝘀𝗲𝗰𝗼𝗻𝗱
-╰┈📈𝗕𝗼𝘁 𝗟𝗮𝘁𝗲𝗻𝗰𝘆: ${botPing}ᵐˢ\n╰┈📊𝗔𝗣𝗜 𝗟𝗮𝘁𝗲𝗻𝗰𝘆: ${apiPing}ᵐˢ\n╰┈📅𝗖𝘂𝗿𝗿𝗲𝗻𝘁 𝗗𝗮𝘁𝗲:\n         ${now.format('YYYY-MM-DD')}\n╰┈⏰𝗖𝘂𝗿𝗿𝗲𝗻𝘁 𝗧𝗶𝗺𝗲: 
-           ${formattedTime} 
+╰┈📈𝗕𝗼𝘁 𝗟𝗮𝘁𝗲𝗻𝗰𝘆: ${botPing}ᵐˢ\n╰┈📊𝗔𝗣𝗜 𝗟𝗮𝘁𝗲𝗻𝗰𝘆: ${apiPing}ᵐˢ\n╰┈❯ 𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿𝘀: ${nehallovesMetaUsers.length}
+❯ 𝗧𝗼𝘁𝗮𝗹 𝗧𝗵𝗿𝗲𝗮𝗱𝘀: ${nehallovesMetaThreads.length}
+❯ 𝗠𝗲𝗺𝗼𝗿𝘆: ${nehallovesMetaTotalMemory}
+❯ 𝗢𝗦: ${nehallovesMetaOperatingSystem}
+❯ 𝗖𝗣𝗨: ${nehallovesMetaCpuInfo}
+❯ 𝗗&𝗧: ${nehallovesMetaServerTime}
 ━━━━━━━━━━━━━━━━━━
-🟢 𝗨𝗣𝗧𝗜𝗠𝗘 𝗙𝗔𝗖𝗧: ${randomFact}\n `;
+🟢 𝗨𝗣𝗧𝗜𝗠𝗘 𝗙𝗔𝗖𝗧: ${randomFact}`;
 
-      api.sendMessage(`${pingMessage}`, event.threadID, sentMessage.messageID);
+       message.reply(pingMessage);
+      message.reaction("✅", event.threadID, event.messageID);
+    } catch (error) {
+      console.error(error);
+      message.reply("An error occurred while retrieving status data.");
+      message.reaction("❌", event.threadID, event.messageID);
     });
   },
 };
