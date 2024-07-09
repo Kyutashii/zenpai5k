@@ -27,9 +27,6 @@ const greetings = {
     { time: "11:30 PM", message: "Midnight snack run, anyone? Let's satisfy those cravings." },
     { time: "12:00 AM", message: "Burning the midnight oil? Grab a snack and keep me company." },
   ],
-  every10Minutes: [
-    { time: "00:10", message: "DONT FORGET TO FOLLOW/ADD TO MY HANDSOME ADMIN 𝗞𝗬𝗟𝗘\n\nhttps://www.facebook.com/kyledev03\nPARA KEEP UPDATE KA NI 𝗭𝗘𝗣𝗛𝗬𝗥𝗨𝗦 𝗔𝗜 SA LATEST UPDATE NYA."},
-  ],
 };
 
 module.exports = {
