@@ -27,7 +27,7 @@ const greetings = {
     { time: "12:00 AM", message: "Burning the midnight oil? Grab a snack and keep me company." },
   ],
   every10Minutes: [
-    { time: "00:10", message: "DONT FORGET TO FOLLOW/ADD TO MY HANDSOME ADMIN 𝗞𝗬𝗟𝗘 𝗕𝗔𝗜𝗧-𝗜𝗧\n\nhttps://www.facebook.com/Itzkyleigopjk\nPARA KEEP UPDATE KA NI 𝗬𝗔𝗡𝗭𝗨 𝗔𝗜 SA LATEST UPDATE NYA."},
+    { time: "00:10", message: "DONT FORGET TO FOLLOW/ADD TO MY HANDSOME ADMIN 𝗞𝗬𝗟𝗘\n\nhttps://www.facebook.com/kyledev03\nPARA KEEP UPDATE KA NI 𝗭𝗘𝗣𝗛𝗬𝗥𝗨𝗦 𝗔𝗜 SA LATEST UPDATE NYA."},
   ],
 };
 
@@ -39,7 +39,7 @@ module.exports = {
     description: "Autogreeting",
     category: "events"
   },
-  onStart: async ({ api, args, message, events, threadsData, usersData, dashBoardData, threadModel, userModel, dashBoardModel, role, commandName }) => {
+  onStart: async ({ api, args, message,getTime, events, threadsData, usersData, dashBoardData, threadModel, userModel, dashBoardModel, role, commandName }) => {
     cron.schedule('0 8 * * *', () => { sendRandomGreeting(greetings.morning); });
     cron.schedule('0 12 * * *', () => { sendRandomGreeting(greetings.lunchtime); });
     cron.schedule('0 15 * * *', () => { sendRandomGreeting(greetings.afternoonSnack); });
