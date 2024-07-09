@@ -1,67 +1,52 @@
-const { GoatWrapper } = require('fca-liane-utils');
- const axios = require('axios');
-
-const Prefixes = [
-  'bea',
-];
+const fs = require("fs");
+const similarity = require("similarity");
 
 module.exports = {
   config: {
-    name: 'bea',
-    version: '2.5',
-    author: 'JV Barcenas', // do not change
+    name: "bea",
+    version: "2.1",
+    author: "Zed",
+    usages: "sophia [text]",
+    countDown: 3,
     role: 0,
-    category: 'ai',
     shortDescription: {
-      en: 'Asks an AI for an answer.',
+      en: "Bebetime With Sophia"
     },
     longDescription: {
-      en: 'Asks an AI for an answer based on the user prompt.',
+      en: "Bebetime With Sophia"
     },
+    category: "bea",
     guide: {
-      en: '{pn} [prompt]',
-    },
-  },
-  onStart: async function () {},
-  onChat: async function ({ api, event, args, message }) {
-    try {
-      const prefix = Prefixes.find((p) => event.body && event.body.toLowerCase().startsWith(p));
-
-      if (!prefix) {
-        return; 
-      }
-
-      const prompt = event.body.substring(prefix.length).trim();
-
-      if (prompt === '') {
-        await message.reply(
-          "𝖧𝖤𝖫𝖫𝖮, 𝖬𝖸 𝖴𝖲𝖤𝖱 𝖯𝖫𝖤𝖠𝖲𝖤 𝖠𝖣𝖣 𝖠 𝖰𝖴𝖤𝖲𝖳𝖨𝖮𝖭 𝖳𝖮 𝖬𝖠𝖪𝖤 𝖮𝖴𝖱 𝖢𝖮𝖭𝖵𝖤𝖱𝖲𝖠𝖳𝖨𝖮𝖭 𝖥𝖠𝖲𝖳𝖤𝖱"
-        );
-        return;
-      }
-
-
-      await message.reply("♑ | 𝖡𝖤𝖠 𝖨𝖲 𝖭𝖮𝖶 𝖲𝖤𝖠𝖱𝖢𝖧𝖨𝖭𝖦 𝖥𝖮𝖱 𝖠𝖭 𝖠𝖭𝖲𝖶𝖤𝖱.....");
-
-      const response = await axios.get(`https://chatgayfeyti.archashura.repl.co?gpt=${encodeURIComponent(prompt)}`);
-
-      if (response.status !== 200 || !response.data) {
-        throw new Error('Invalid or missing response from API');
-      }
-
-      const messageText = response.data.content.trim();
-
-      await message.reply(messageText);
-
-      console.log('Sent answer as a reply to user');
-    } catch (error) {
-      console.error(`Failed to get answer: ${error.message}`);
-      api.sendMessage(
-        `${error.message}.\n\nYou can try typing your question again or resending it, as there might be a bug from the server that's causing the problem. It might resolve the issue.`,
-        event.threadID
-      );
+      en: "{p}sophia your ask"
     }
   },
+
+  onStart: async function ({ api, event, args }) {
+    const path = 'scripts/cmds/bea.json'; // Changed path here
+
+    if (!fs.existsSync(path)) return api.sendMessage("Sophia Data Not Found", event.threadID, event.messageID);
+
+    const data = JSON.parse(fs.readFileSync(path));
+    const question = args.join(" ");
+
+    if (!question) return api.sendMessage("╭┈ ❒ 𝘂𝘀𝗮𝗴𝗲 :\n╰┈➤ Type: bea [text]", event.threadID, event.messageID);
+
+    let bestMatch = "";
+    let highestScore = 0;
+
+    for (const key in data) {
+      const score = similarity(question, key);
+      if (score > highestScore) {
+        highestScore = score;
+        bestMatch = key;
+      }
+    }
+
+    if (highestScore < 0.5) return api.sendMessage("❔", event.threadID, event.messageID);
+
+    const responses = data[bestMatch];
+    const response = responses[Math.floor(Math.random() * responses.length)];
+
+    api.sendMessage(response, event.threadID, event.messageID);
+  }
 };
-const wrapper = new GoatWrapper(module.exports);
-wrapper.applyNoPrefix({ allowPrefix: false });
