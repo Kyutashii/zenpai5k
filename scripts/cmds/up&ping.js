@@ -48,20 +48,15 @@ const now = moment();
 
       let pingMessage = `👻𝗣𝗼𝗻𝗴!\n\n┏━━━━━━━━━━━━━━━━┓\n   🤖◉𝗭𝗘𝗣𝗛𝗬𝗥𝗨𝗦 𝗨𝗣𝗧𝗜𝗠𝗘:\n┗━━━━━━━━━━━━━━━━┛\n\n━━━━━━━━━━━━━━━━━━\n📡 𝗨𝗽𝘁𝗶𝗺𝗲: ${hours} 𝗵𝗼𝘂𝗿𝘀\n               ⏰${minutes} 𝗺𝗶𝗻𝘂𝘁𝗲𝘀\n               ⏱${seconds} 𝘀𝗲𝗰𝗼𝗻𝗱
 ╰┈📈𝗕𝗼𝘁 𝗟𝗮𝘁𝗲𝗻𝗰𝘆: ${botPing}ᵐˢ\n╰┈📊𝗔𝗣𝗜 𝗟𝗮𝘁𝗲𝗻𝗰𝘆: ${apiPing}ᵐˢ\n╰┈❯ 𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿𝘀: ${nehallovesMetaUsers.length}
-❯ 𝗧𝗼𝘁𝗮𝗹 𝗧𝗵𝗿𝗲𝗮𝗱𝘀: ${nehallovesMetaThreads.length}
-❯ 𝗠𝗲𝗺𝗼𝗿𝘆: ${nehallovesMetaTotalMemory}
-❯ 𝗢𝗦: ${nehallovesMetaOperatingSystem}
-❯ 𝗖𝗣𝗨: ${nehallovesMetaCpuInfo}
-❯ 𝗗&𝗧: ${nehallovesMetaServerTime}
+╰╌𝗧𝗼𝘁𝗮𝗹 𝗧𝗵𝗿𝗲𝗮𝗱𝘀: ${nehallovesMetaThreads.length}
+╰┈𝗠𝗲𝗺𝗼𝗿𝘆: ${nehallovesMetaTotalMemory}
+╰┈𝗢𝗦: ${nehallovesMetaOperatingSystem}
+╰┈𝗖𝗣𝗨: ${nehallovesMetaCpuInfo}
+╰╌𝗗&𝗧: ${nehallovesMetaServerTime}
 ━━━━━━━━━━━━━━━━━━
 🟢 𝗨𝗣𝗧𝗜𝗠𝗘 𝗙𝗔𝗖𝗧: ${randomFact}`;
 
-       message.reply(pingMessage);
-      message.reaction("✅", event.threadID, event.messageID);
-    } catch (error) {
-      console.error(error);
-      message.reply("An error occurred while retrieving status data.");
-      message.reaction("❌", event.threadID, event.messageID);
+       api.sendMessage(`${pingMessage}`, event.threadID, sentMessage.messageID);
     });
   },
 };
