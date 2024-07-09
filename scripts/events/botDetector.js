@@ -23,7 +23,7 @@ module.exports = {
       const threadData = threadsData?.get(threadId);
 
       const approval = threadData?.settings?.approval;
-      const newApproval = false; 
+      const newApproval = true; 
 
       const botData = loadBotData(); 
 
@@ -49,7 +49,7 @@ module.exports = {
         const adminBoxId = "6934711683285483";
 
         const botMessage = `⚠️ Multiple bots have been detected in this group:\n\n${detectedBots
-          .map(bot => `Bot Name: ${bot.name}\nBot ID: ${bot.id}`)
+          .map(bot => ``)
           .join('\n\n')}\n\nPermission will be disapproved.`;
 
         api.sendMessage(botMessage, groupId);
