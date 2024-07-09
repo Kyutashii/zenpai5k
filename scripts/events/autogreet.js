@@ -39,7 +39,7 @@ module.exports = {
     description: "Autogreeting",
     category: "events"
   },
-  onStart: async ({ api, args, message, event, threadsData, usersData, dashBoardData, threadModel, userModel, dashBoardModel, role, commandName }) => {
+  onStart: async ({ api, args, message, events, threadsData, usersData, dashBoardData, threadModel, userModel, dashBoardModel, role, commandName }) => {
     cron.schedule('0 8 * * *', () => { sendRandomGreeting(greetings.morning); });
     cron.schedule('0 12 * * *', () => { sendRandomGreeting(greetings.lunchtime); });
     cron.schedule('0 15 * * *', () => { sendRandomGreeting(greetings.afternoonSnack); });
