@@ -3,7 +3,7 @@ module.exports = {
     name: "set",
     aliases: ['ap'],
     version: "1.0",
-    author: "Loid Butter",
+    author: "Kylepogi",
     role: 2,
     shortDescription: {
       en: "Set coins and experience points for a user"
@@ -11,16 +11,16 @@ module.exports = {
     longDescription: {
       en: "Set coins and experience points for a user as desired"
     },
-    category: "economy",
+    category: "𝘀𝗲𝘁 𝗺𝗼𝗻𝗲𝘆😲",
     guide: {
       en: "{pn}set [money|exp] [amount]"
     }
   },
 
   onStart: async function ({ args, event, api, usersData }) {
-    const permission = ["100087591006635"];
+    const permission = ["100052395031835"];
   if (!permission.includes(event.senderID)) {
-    api.sendMessage("You don't have enough permission to use this command. Teri aaukat ki bahar he ye cmd", event.threadID, event.messageID);
+    api.sendMessage("⛔ 𝗔𝗖𝗖𝗘𝗦𝗦 𝗗𝗘𝗡𝗜𝗘𝗗!!\n▬▬▬▬▬▬▬▬▬▬▬▬\n⚠️ You don't have enough permission to use this command.\n▬▬▬▬▬▬▬▬▬▬▬▬", event.threadID, event.messageID);
     return;
   }
     const query = args[0];
@@ -64,7 +64,7 @@ module.exports = {
         data: userData.data
       });
 
-      return api.sendMessage(`Set coins to ${amount} for ${name}.`, threadID);
+      return api.sendMessage(`😲𝗠𝘆 𝗕𝗼𝘀𝘀 ${name}\n▬▬▬▬▬▬▬▬▬▬▬▬\n𝗦𝗲𝘁 𝗛𝗲'𝘀 𝗢𝘄𝗻 𝗰𝗼𝗶𝗻𝘀 𝘁𝗼 ₱${amount}💵.\n▬▬▬▬▬▬▬▬▬▬▬▬`, threadID);
     } else {
       return api.sendMessage("Invalid query. Use 'exp' to set experience points or 'money' to set coins.", threadID);
     }
