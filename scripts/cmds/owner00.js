@@ -30,7 +30,7 @@ module.exports = {
           name: '𝖪𝗒𝗅𝖾 𝖡𝖺𝗂𝗍-𝗂𝗍',
           gender: '𝖡𝗈𝗒',
           hobby: '𝗉𝗅𝖺𝗒𝗂𝗇𝗀 𝗀𝖺𝗆𝖾𝗌,𝖾𝗍𝖼.',
-          relationship: 'ASHY S. MONDEGALDO',
+          relationship: 'N/A',
           facebookLink: 'https://www.facebook.com/kyledev03',
           bio: 'Be kind whenever possible. It is always possible.'
         };
