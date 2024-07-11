@@ -67,11 +67,9 @@ module.exports = {
       if (response.status !== 200 || !response.data) {
         throw new Error('Invalid or missing response from API');
       }
-      const botPing = endTime - startTime;
-      const apiPing = sentMessage.timestamp - startTime;
       const messageText = response.data.reply.trim(); // Adjust according to the response structure of the new API
       const userName = getLang("final");
-      const finalMsg = `${userName}\n❍━━━━━━━━━━━━━━━━━━━━❏\n💁🏻‍♂️𝗔𝗡𝗦𝗪𝗘𝗥: ${messageText}\n❍━━━━━━━━━━━━━━━━━━━━❏\n𝙿𝙸𝙽𝙶: ${ping}𝙼𝚜`;
+      const finalMsg = `${userName}\n❍━━━━━━━━━━━━━━━━━━━━❏\n💁🏻‍♂️𝗔𝗡𝗦𝗪𝗘𝗥: ${messageText}\n❍━━━━━━━━━━━━━━━━━━━━❏\n𝒶𝒹𝓂𝒾𝓃: https://www.facebook.com/kyledev03`;
       api.editMessage(finalMsg, loadingReply.messageID);
 
       console.log('Sent answer as a reply to user');
