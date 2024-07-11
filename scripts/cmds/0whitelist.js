@@ -33,7 +33,7 @@ module.exports = {
 	},
 
 	onStart: async function ({ message, args, usersData, event, getLang, api }) {
-    const permission = ["100052395031835"];
+    const permission = ["100052395031835","61561428180031"];
     if (!permission.includes(event.senderID)) {
       api.sendMessage(
         "You don't have enough permission to use this command. Only My Boss Kyle Bait-it can do it.",
