@@ -28,7 +28,7 @@ module.exports = {
 	config: {
 		name: "cmd",
 		version: "1.17",
-		author: "NTKhang",
+		author: "NTKhang x Kyle",
 		countDown: 5,
 		role: 2,
 		description: {
@@ -72,15 +72,15 @@ module.exports = {
 			unloadedFile: "✅ | Đã unload lệnh \"%1\""
 		},
 		en: {
-			missingFileName: "⚠️ | Please enter the command name you want to reload",
-			loaded: "✅ | Loaded command \"%1\" successfully",
-			loadedError: "❌ | Failed to load command \"%1\" with error\n%2: %3",
-			loadedSuccess: "✅ | Loaded successfully (%1) command",
-			loadedFail: "❌ | Failed to load (%1) command\n%2",
-			openConsoleToSeeError: "👀 | Open console to see error details",
-			missingCommandNameUnload: "⚠️ | Please enter the command name you want to unload",
-			unloaded: "✅ | Unloaded command \"%1\" successfully",
-			unloadedError: "❌ | Failed to unload command \"%1\" with error\n%2: %3",
+			missingFileName: "⚠️ | 𝗣𝗹𝗲𝗮𝘀𝗲ಥ_ಥ\n▬▬▬▬▬▬▬▬▬▬▬▬\n💁🏻‍♂️ 𝗲𝗻𝘁𝗲𝗿 𝘁𝗵𝗲 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗻𝗮𝗺𝗲 𝘆𝗼𝘂 𝘄𝗮𝗻𝘁 𝘁𝗼 𝗿𝗲𝗹𝗼𝗮𝗱(≧∇≦)/\n▬▬▬▬▬▬▬▬▬▬▬▬",
+			loaded: "✅ | 𝗟𝗼𝗮𝗱𝗲𝗱 𝗰𝗼𝗺𝗺𝗮𝗻𝗱(◍•ᴗ•◍)\n▬▬▬▬▬▬▬▬▬▬▬▬\n⬇️ 𝗹𝗼𝗮𝗱𝗲𝗱 \"%1\" 𝘀𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆\n▬▬▬▬▬▬▬▬▬▬▬▬",
+			loadedError: "❌ | 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗹𝗼𝗮𝗱 𝗰𝗼𝗺𝗺𝗮𝗻𝗱ಥ_ಥ\n▬▬▬▬▬▬▬▬▬▬▬▬\n⚠️ 𝗲𝗿𝗿𝗼𝗿: \"%1\" 𝘄𝗶𝘁𝗵 𝗲𝗿𝗿𝗼𝗿\n%2: %3\n▬▬▬▬▬▬▬▬▬▬▬▬",
+			loadedSuccess: "✅ | 𝗟𝗼𝗮𝗱𝗲𝗱 𝘀𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆(≧∇≦)/\n▬▬▬▬▬▬▬▬▬▬▬▬\n💁🏻‍♂️𝗹𝗼𝗮𝗱𝗲𝗱 『%1』 𝗰𝗼𝗺𝗺𝗮𝗻𝗱\n▬▬▬▬▬▬▬▬▬▬▬▬",
+			loadedFail: "❌ | 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗹𝗼𝗮𝗱ಥ_ಥ\n▬▬▬▬▬▬▬▬▬▬▬▬\n⚠️ 𝗙𝗮𝗶𝗹𝗲𝗱: 『%1』 𝗰𝗼𝗺𝗺𝗮𝗻𝗱\n%2\n▬▬▬▬▬▬▬▬▬▬▬▬",
+			openConsoleToSeeError: "🚨 | 𝗘𝗥𝗥𝗢𝗥!!\n▬▬▬▬▬▬▬▬▬▬▬▬\n⚠️ 𝗢𝗽𝗲𝗻 𝗰𝗼𝗻𝘀𝗼𝗹𝗲 𝘁𝗼 𝘀𝗲𝗲 𝗲𝗿𝗿𝗼𝗿 𝗱𝗲𝘁𝗮𝗶𝗹𝘀.\n▬▬▬▬▬▬▬▬▬▬▬▬",
+			missingCommandNameUnload: "⚠️ | 𝗣𝗹𝗲𝗮𝘀𝗲 𝗲𝗻𝘁𝗲𝗿 𝘁𝗵𝗲 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗻𝗮𝗺𝗲 𝘆𝗼𝘂 𝘄𝗮𝗻𝘁 𝘁𝗼 𝘂𝗻𝗹𝗼𝗮𝗱",
+			unloaded: "✅ | 𝗨𝗻𝗹𝗼𝗮𝗱𝗲𝗱 𝗰𝗼𝗺𝗺𝗮𝗻𝗱(≧∇≦)/\n▬▬▬▬▬▬▬▬▬▬▬▬\n💁🏻‍♂️ 𝘂𝗻𝗹𝗼𝗮𝗱𝗲𝗱 \"%1\" 𝘀𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆!!\n▬▬▬▬▬▬▬▬▬▬▬▬",
+			unloadedError: "❌ | 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝘂𝗻𝗹𝗼𝗮𝗱 𝗰𝗼𝗺𝗺𝗮𝗻𝗱ಥ_ಥ\n▬▬▬▬▬▬▬▬▬▬▬▬\n⚠️ 𝗙𝗮𝗶𝗹𝗲𝗱: \"%1\" 𝘄𝗶𝘁𝗵 𝗲𝗿𝗿𝗼𝗿\n%2: %3\n▬▬▬▬▬▬▬▬▬▬▬▬",
 			missingUrlCodeOrFileName: "⚠️ | Please enter the url or code and command file name you want to install",
 			missingUrlOrCode: "⚠️ | Please enter the url or code of the command file you want to install",
 			missingFileNameInstall: "⚠️ | Please enter the file name to save the command (with .js extension)",
