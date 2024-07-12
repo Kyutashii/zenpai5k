@@ -1,53 +1,116 @@
-const { GoatWrapper } = require('fca-liane-utils');
-const axios = require('axios');
-const moment = require('moment-timezone');
+const fs = require("fs-extra");
+const { utils } = global;
+const moment = require("moment-timezone");
 
 module.exports = {
   config: {
-    name: 'prefix',
-    aliases: ['p','zephyrus'],
-    version: '2.5.4',
-    author: 'Kylepogi',
+    name: "prefix",
+    version: "1.4",
+    author: "NTKhang x Kyle",
+    countDown: 5,
     role: 0,
-    category: '𝗕𝗢𝗧 𝗣𝗥𝗘𝗙𝗜𝗫🤖',
-    shortDescription: {
-      en: '𝗕𝗢𝗧 𝗣𝗥𝗘𝗙𝗜𝗫🤖',
-    },
-    longDescription: {
-      en: '𝗣𝗥𝗘𝗙𝗜𝗫 𝗕𝗢𝗧',
-    },
+    shortDescription: "Change bot's prefix",
+    longDescription: "Change the command prefix of the bot in your chat box or the entire bot system (admin only)",
+    category: "config",
     guide: {
-      en: '𝗯𝗼𝘁 𝗽𝗿𝗲𝗳𝗶𝘅',
-    },
+      vi: "   {pn} <new prefix>: change the prefix in your chat box"
+        + "\nExample:"
+        + "\n{pn} #"
+        + "\n{pn} <new prefix> -g: change the prefix in the bot system (admin only)"
+        + "\nExample:"
+        + "\n{pn} # -g"
+        + "\n{pn} reset: reset the prefix in your chat box to default",
+      en: "   {pn} <new prefix>: change the prefix in your chat box"
+        + "\nExample:"
+        + "\n{pn} #"
+        + "\n{pn} <new prefix> -g: change the prefix in the bot system (admin only)"
+        + "\nExample:"
+        + "\n{pn} # -g"
+        + "\n{pn} reset: reset the prefix in your chat box to default"
+    }
   },
 
   langs: {
-    en: {
-      final: '▄︻デ𝗞𝘆𝗹𝗲敦. ဗီူ══━一',
-      loading:
-        '˚₊·͟͟͟͟͟͟͞͞͞͞͞͞➳ ⌨ ✰ 𝗭𝗘𝗣𝗛 𝗕𝗢𝗧 ⁱˢ ᵗʸᵖⁱⁿᵍ··· | ೃ࿔₊•:\n❍━━━━━━━━━━━━━━━━━━━━❏\n💁🏻‍♂️ 𝙢𝙮 𝙥𝙧𝙚𝙛𝙞𝙭 𝙞𝙨??\n❍━━━━━━━━━━━━━━━━━━━━❏',
+    vi: {
+      reset: "The prefix has been reset to default: %1",
+      onlyAdmin: "Only admin can change the prefix of the bot system",
+      confirmGlobal: "Please react to this message to confirm the prefix change for the entire bot system",
+      confirmThisThread: "Please react to this message to confirm the prefix change for your chat box",
+      successGlobal: "The prefix of the bot system has been changed to: %1",
+      successThisThread: "The prefix of your chat box has been changed to: %1",
+      myPrefix: "🌐 Bot System Prefix: %1\nYour Chat Box Prefix: %2\nPhilippines Timezone: %3",
+      philippinesTimezone: "🇵🇭 Philippines Timezone: GMT+8"
     },
-  },
-
-  onStart: async function () {},
-
-  onChat: async function ({ event, message, getLang, api, args }) {
-    try {
-      const prompt = event.body.substring(Prefixes[0].length).trim();
-
-      const loadingMessage = getLang('loading');
-      const loadingReply = await message.reply(loadingMessage);
-      const userName = getLang('final');
-      const finalMsg = `${userName}\n❍━━━━━━━━━━━━━━━━━━━━❏\n💁🏻‍♂️ 𝗛𝗘𝗥𝗘 𝗜𝗦 𝗠𝗬 𝗣𝗥𝗘𝗙𝗜𝗫: 『 × 』\n❍━━━━━━━━━━━━━━━━━━━━❏\n`;
-
-      console.log('Sent answer as a reply to user');
-      await api.editMessage(finalMsg, loadingReply.messageID, event.threadID);
-    } catch (err) {
-      console.log(err);
-      message.reply('Something went wrong. Please try again.');
+    en: {
+      reset: "Your prefix has been reset to default: %1",
+      onlyAdmin: "Only admin can change the prefix of the bot system",
+      confirmGlobal: "Please react to this message to confirm the prefix change for the entire bot system",
+      confirmThisThread: "Please react to this message to confirm the prefix change for your chat box",
+      successGlobal: "The prefix of the bot system has been changed to: %1",
+      successThisThread: "The prefix of your chat box has been changed to: %1",
+      myPrefix: "𝗛𝗜 𝗜'𝗠 𝗭𝗘𝗣𝗛𝗬𝗥𝗨𝗦(𝗔𝗜) 𝗠𝗔𝗗𝗘 𝗕𝗬 𝗞𝗬𝗟𝗘 𝗠𝗬 𝗣𝗥𝗘𝗙𝗜𝗫 𝗜𝗦??\n▬▬▬▬▬▬▬▬▬▬▬▬\n📡 𝗛𝗘𝗥𝗘 𝗜𝗦 𝗠𝗬 𝗣𝗥𝗘𝗙𝗜𝗫:『 %1 』\n💬 ʏᴏᴜʀ ᴄʜᴀᴛ ʙᴏx ᴘʀᴇғɪx:『 %2 』\n📅|⏰ 𝗗𝗔𝗧𝗘 𝗔𝗡𝗗 𝗧𝗜𝗠𝗘:\n    %3\nℹ️ 𝗉𝗅𝖾𝖺𝗌𝖾 𝗍𝗒𝗉𝖾 ×help3 𝗈𝗋 help to see 𝗆𝗒 𝖺𝗏𝖺𝗂𝗅𝖺𝖻𝗅𝖾 commands(◍•ᴗ•◍)\n▬▬▬▬▬▬▬▬▬▬▬▬\n𝒶𝒹𝓂𝒾𝓃&𝑜𝓌𝓃𝑒𝓇: https://www.facebook.com/kyledev03",
+      philippinesTimezone: "🇵🇭 Philippines Timezone: GMT+8"
     }
   },
-};
 
-const wrapper = new GoatWrapper(module.exports);
-wrapper.applyNoPrefix({ allowPrefix: false });
+  onStart: async function ({ message, role, args, commandName, event, threadsData, getLang }) {
+    if (!args[0])
+      return message.SyntaxError();
+
+    if (args[0] === 'reset') {
+      await threadsData.set(event.threadID, null, "data.prefix");
+      return message.reply(getLang("reset", global.GoatBot.config.prefix));
+    }
+
+    const newPrefix = args[0];
+    const formSet = {
+      commandName,
+      author: event.senderID,
+      newPrefix
+    };
+
+    if (args[1] === "-g") {
+      if (role < 2)
+        return message.reply(getLang("onlyAdmin"));
+      else
+        formSet.setGlobal = true;
+    }
+    else {
+      formSet.setGlobal = false;
+    }
+
+    return message.reply(args[1] === "-g" ? getLang("confirmGlobal") : getLang("confirmThisThread"), (err, info) => {
+      formSet.messageID = info.messageID;
+      global.GoatBot.onReaction.set(info.messageID, formSet);
+    });
+  },
+
+  onReaction: async function ({ message, threadsData, event, Reaction, getLang }) {
+    const { author, newPrefix, setGlobal } = Reaction;
+    if (event.userID !== author)
+      return;
+    if (setGlobal) {
+      global.GoatBot.config.prefix = newPrefix;
+      fs.writeFileSync(global.client.dirConfig, JSON.stringify(global.GoatBot.config, null, 2));
+      return message.reply(getLang("successGlobal", newPrefix));
+    }
+    else {
+      await threadsData.set(event.threadID, newPrefix, "data.prefix");
+      return message.reply(getLang("successThisThread", newPrefix));
+    }
+  },
+
+  onChat: async function ({ event, message, getLang }) {
+    if (event.body && event.body.toLowerCase() === "prefix") {
+      return () => {
+        const philippinesTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Manila" });
+        return message.reply(getLang("myPrefix", global.GoatBot.config.prefix, utils.getPrefix(event.threadID), philippinesTime));
+      };
+    }
+    else if (event.body && event.body.toLowerCase() === "timezone philippines") {
+      return () => {
+        return message.reply(getLang("philippinesTimezone"));
+      };
+    }
+  }
+};
