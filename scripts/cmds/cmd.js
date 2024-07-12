@@ -87,11 +87,11 @@ module.exports = {
 			invalidUrl: "⚠️ | Please enter a valid url",
 			invalidUrlOrCode: "⚠️ | Unable to get command code",
 			alreadExist: "⚠️ | The command file already exists, are you sure you want to overwrite the old command file?\nReact to this message to continue",
-			installed: "✅ | Installed command \"%1\" successfully, the command file is saved at %2",
+			installed: "✅ | 𝗜𝗻𝘀𝘁𝗮𝗹𝗹𝗲𝗱 𝗰𝗼𝗺𝗺𝗮𝗻𝗱\n▬▬▬▬▬▬▬▬▬▬▬▬\n💁🏻‍♂️ 𝗶𝗻𝘀𝘁𝗮𝗹𝗹𝗲𝗱: \"%1\" 𝘀𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆!!, 𝘁𝗵𝗲 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗳𝗶𝗹𝗲🗃 𝗶𝘀 𝘀𝗮𝘃𝗲𝗱 𝗮𝘁 %2\n▬▬▬▬▬▬▬▬▬▬▬▬",
 			installedError: "❌ | Failed to install command \"%1\" with error\n%2: %3",
 			missingFile: "⚠️ | Command file \"%1\" not found",
-			invalidFileName: "⚠️ | Invalid command file name",
-			unloadedFile: "✅ | Unloaded command \"%1\""
+			invalidFileName: "⚠️ | 𝗜𝗻𝘃𝗮𝗹𝗶𝗱 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗳𝗶𝗹𝗲 𝗻𝗮𝗺𝗲ಥ_ಥ",
+			unloadedFile: "✅ | 𝗨𝗻𝗹𝗼𝗮𝗱𝗲𝗱 𝗰𝗼𝗺𝗺𝗮𝗻𝗱!!\n▬▬▬▬▬▬▬▬▬▬▬▬\n 💁🏻‍♂️𝗎𝗇𝗅𝗈𝖺𝖽𝖾𝖽: \"%1\" 𝗌𝗎𝖼𝖼𝖾𝗌𝗌𝖿𝗎𝗅𝗅𝗒!!\n▬▬▬▬▬▬▬▬▬▬▬▬"
 		}
 	},
 
@@ -136,7 +136,7 @@ module.exports = {
 				if (infoLoad.status == "success")
 					arraySucces.push(fileName);
 				else
-					arrayFail.push(` ❗ ${fileName} => ${infoLoad.error.name}: ${infoLoad.error.message}`);
+					arrayFail.push(` ⚠️ 𝗘𝗥𝗥𝗢𝗥: ${fileName} => ${infoLoad.error.name}: ${infoLoad.error.message}`);
 			}
 
 			let msg = "";
