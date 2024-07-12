@@ -167,7 +167,7 @@ module.exports = {
                 return;
             }
 
-            const reason = "🚨𝗔𝗟𝗘𝗥𝗧 𝗗𝗘𝗧𝗘𝗖𝗧🚨\n▬▬▬▬▬▬▬▬▬▬▬▬\n⚠︎ Using sensitive language💀\n▬▬▬▬▬▬▬▬▬▬▬▬";
+            const reason = "⚠︎ 𝗨𝘀𝗶𝗻𝗴 𝘀𝗲𝗻𝘀𝗶𝘁𝗶𝘃𝗲 𝗹𝗮𝗻𝗴𝘂𝗮𝗴𝗲💀";
 
             const userData = await usersData.get(uid);
             const name = userData.name;
