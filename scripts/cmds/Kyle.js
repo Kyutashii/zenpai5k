@@ -13,8 +13,8 @@ module.exports = {
  onChat: async function({ event, message, getLang }) {
  if (event.body && event.body.toLowerCase() === "kyle") {
  return message.reply({
- body: "Dont call my boss 𝗞𝘆𝗹𝗲敦. If He Aint Here !!(⋋▂⋌)",
- attachment: await global.utils.getStreamFromURL("https://i.imgur.com/Ck8QC31.jpeg")
+ body: "Dont call my boss 𝗞𝘆𝗹𝗲敦. ဗီူ If He Aint Here !!(⋋▂⋌)",
+ attachment: await global.utils.getStreamFromURL("https://i.imgur.com/wtdSM2j.jpeg")
  });
  }
  }
