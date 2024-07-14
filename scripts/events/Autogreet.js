@@ -1,6 +1,7 @@
 const allOnEvent = global.GoatBot.onEvent;
 
 const fs = require("fs");
+const moment = require('moment-timezone');
 const cron = require("node-cron");
 const greetings = {
   every5minutes: [
@@ -71,6 +72,7 @@ module.exports = {
       const randomIndex = Math.floor(Math.random() * greetingArray.length);
       const { time, message } = greetingArray[randomIndex];
       const allThreads = await threadsData.getAll();
+      const restartTime = moment().tz('Asia/Manila').format('YYYY-MM-DD HH:mm:ss');
       for (const { threadID } of allThreads) {
         try {
         await api.sendMessage(`🛎 | 𝗔𝗨𝗧𝗢 𝗚𝗥𝗘𝗘𝗧𝗜𝗡𝗚𝗦(≧∇≦)/\n▬▬▬▬▬▬▬▬▬▬▬▬\n [ ${time} ] — ${message}\n▬▬▬▬▬▬▬▬▬▬▬▬`, threadID);
