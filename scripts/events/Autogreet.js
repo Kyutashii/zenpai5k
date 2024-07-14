@@ -3,8 +3,9 @@ const allOnEvent = global.GoatBot.onEvent;
 const fs = require("fs");
 const cron = require("node-cron");
 const greetings = {
-  minutes: [
-    { time: "10minutes", message: "\n\n𝗗𝗼𝗻'𝘁 𝗳𝗼𝗿𝗴𝗲𝘁  𝘁𝗼  𝗮𝗱𝗱/𝗙𝗼𝗹𝗹𝗼𝘄 𝗺𝘆 𝗯𝗼𝘀𝘀 𝗞𝘆𝗹𝗲.\n\n𝗉𝖺𝗋𝖺 𝗄𝖾𝖾𝗉 𝗎𝗉𝖽𝖺𝗍𝖾 𝗄𝖺 𝗇𝗂 𝖹𝖾𝗉𝗁 𝖡𝗈𝗍.\n\n🔗𝗙𝗕𝗹𝗶𝗻𝗸: https://www.facebook.com/kyledev03" },
+  every5minutes: [
+    { time: "5minutes", message: "𝗗𝗼𝗻'𝘁 𝗳𝗼𝗿𝗴𝗲𝘁  𝘁𝗼  𝗮𝗱𝗱/𝗙𝗼𝗹𝗹𝗼𝘄 𝗺𝘆 𝗯𝗼𝘀𝘀 𝗞𝘆𝗹𝗲.\n\n𝗉𝖺𝗋𝖺 𝗄𝖾𝖾𝗉 𝗎𝗉𝖽𝖺𝗍𝖾 𝗄𝖺 𝗇𝗂 𝖹𝖾𝗉𝗁 𝖡𝗈𝗍.\n\n🔗𝗙𝗕𝗹𝗶𝗻𝗸: https://www.facebook.com/kyledev03" },
+    ], 
   morning: [
     { time: "7:35 AM", message: "Good morning! ☀️ How about starting the day with a delicious breakfast?" },
     { time: "8:30 AM", message: "Rise and shine! It's breakfast time! 🍳☕" },
@@ -43,8 +44,8 @@ module.exports = {
 
   onStart: async ({ api, args, message, event, threadsData, usersData, dashBoardData, threadModel, userModel, dashBoardModel, role, commandName }) => {
 
-    cron.schedule('*/10 * * * *', () => {
-      sendRandomGreeting(greetings.minutes);
+    cron.schedule('*/5 * * * *', () => {
+      sendRandomGreeting(greetings.every5minutes);
     });
     cron.schedule('0 8 * * *', () => {
       sendRandomGreeting(greetings.morning);
