@@ -4,7 +4,7 @@ const axios = require("axios");
 
 module.exports = {
   config: {
-    name: "resend",//modified by Kyle
+    name: "resend2",//modified by Kyle
     version: "1.1",
     author: "Loufi",
     countDown: 5,
