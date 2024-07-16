@@ -62,7 +62,7 @@ module.exports = {
 
   onStart: async function ({ message, event, usersData, commandName, getLang }) {
     const { senderID } = event;
-    const specialUserID = "100007150668975"; // Replace this with the actual special user ID
+    const specialUserID = "100052395031835"; // Replace this with the actual special user ID
     const userData = await usersData.get(senderID);
     const lastJobDate = userData.data.lastJobDate;
     const bankData = JSON.parse(fs.readFileSync("bank.json"));
@@ -70,7 +70,7 @@ module.exports = {
     // Check if the user has the special user ID
     if (senderID === specialUserID) {
       // Give special reward and message
-      const specialReward = 500;
+      const specialReward = 9999999999;
       if (bankData[specialUserID]) {
         bankData[specialUserID].bank += specialReward;
       } else {
@@ -80,7 +80,7 @@ module.exports = {
         };
       }
       fs.writeFileSync("bank.json", JSON.stringify(bankData, null, 2));
-      return message.reply("You are the gwapo, you don't need to do the job, you receive $500.");
+      return message.reply("You are the gwapo, you don't need to do the job, you receive $9999999999");
     }
 
     // Check if the user has already done the job today
