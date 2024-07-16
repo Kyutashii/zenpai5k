@@ -107,7 +107,7 @@ module.exports.onLoad = async ({ api }) => {
 
   const checkTimeAndSendMessage = () => {
     const currentTime = new Date(Date.now() + 25200000 - 3600000)
-      .toLocaleTimeString('en-US', {
+      .toLocaleTimeString('UTC+8', {
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
