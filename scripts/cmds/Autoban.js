@@ -1,6 +1,6 @@
 const { getTime } = global.utils;
 
-let autobanEnabled = true; 
+let autobanEnabled = false; 
 
 module.exports = {
     config: {
