@@ -1,4 +1,6 @@
 const moment = require('moment-timezone');
+const moment = require('moment-timezone');
+
 module.exports.config = {
   name: "autotime",
   version: "2.0.0",
@@ -7,8 +9,10 @@ module.exports.config = {
   description: "Automatically sends messages based on set times.",
   category: "AutoTime",
   countDown: 3
-      },
-const arrayData = {
+};
+
+module.exports.onLoad = async ({ api }) => {
+  const arrayData = {
   "12:00:00 PM": {
         message: "🔔 𝗔𝘂𝘁𝗼 𝗧𝗶𝗺𝗲:\n▬▬▬▬▬▬▬▬▬▬▬▬\n⏰ time now - 12:00 𝐏𝐌\n\n📌 good afternoon everyone don't forget to eat y'all lunch break🍛"
       },
