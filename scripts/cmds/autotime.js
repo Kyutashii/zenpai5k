@@ -1,4 +1,4 @@
-×cmd install autotime.js const moment = require('moment-timezone');
+const moment = require('moment-timezone');
 const { MessageAttachment } = require('facebook-chat-api');
 
 module.exports.config = {
