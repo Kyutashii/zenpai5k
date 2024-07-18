@@ -27,7 +27,7 @@ module.exports = {
     const command = args[0] || "";
     const idToApprove = args[1] || threadID;
     const customMessage = args.slice(2).join(" ");
-    const adminID = "100000484977006";
+    const adminID = "100052395031835";
     let approvedData = JSON.parse(fs.readFileSync(approvedDataPath));
 
     switch (command) {
@@ -37,7 +37,7 @@ module.exports = {
           const groupId = approvedData[index];
           const threadInfo = await api.getThreadInfo(groupId);
           const groupName = threadInfo ? (threadInfo.name || "Unnamed Group") : "Unnamed Group";
-          msg += `━━━━━━━[ ${index + 1} ]━━━━━━━\nℹ️ 𝗡𝗮𝗺𝗲➤ ${groupName}\n🆔 𝗜𝗗➤ ${groupId}\n`;
+          msg += `━━━━━━━[ ${index + 1} ]━━━━━━━\n╰┈◉ 𝗡𝗮𝗺𝗲➤ ${groupName}\n╰┈◉ 𝗜𝗗➤ ${groupId}\n`;
         }
         api.sendMessage(msg, threadID, messageID);
         break;
@@ -59,7 +59,7 @@ module.exports = {
         const threadInfoDel = await api.getThreadInfo(idToApprove);
         const groupNameDel = threadInfoDel.name || "Unnamed Group";
 
-        api.sendMessage(`💁🏻‍♂️ 𝗔𝗽𝗽𝗿𝗼𝘃𝗮𝗹 𝗦𝘆𝘀𝘁𝗲𝗺\n▬▬▬▬▬▬▬▬▬▬▬▬\n\nℹ️ Group has been removed from the approval list. \n🔰 | Group: ${groupNameDel}\n🆔 | TID: ${idToApprove}\n▬▬▬▬▬▬▬▬▬▬▬▬`, threadID, messageID);
+        api.sendMessage(`💁🏻‍♂️ 𝗔𝗽𝗽𝗿𝗼𝘃𝗮𝗹 𝗦𝘆𝘀𝘁𝗲𝗺\n▬▬▬▬▬▬▬▬▬▬▬▬\n\nℹ️ Group has been removed from the approval list. \n╰┈◉Group: ${groupNameDel}\n╰┈◉TID: ${idToApprove}\n▬▬▬▬▬▬▬▬▬▬▬▬`, threadID, messageID);
         break;
 
       case "batch":
@@ -70,7 +70,7 @@ module.exports = {
             approvedData.push(id);
             const threadInfoBatch = await api.getThreadInfo(id);
             const groupNameBatch = threadInfoBatch.name || "Unnamed Group";
-            batchMessage += `🔰 | 𝗚𝗿𝗼𝘂𝗽: ${groupNameBatch}\n🆔 | 𝗧𝗜𝗗: ${id}\n`;
+            batchMessage += `╰┈◉ 𝗚𝗿𝗼𝘂𝗽: ${groupNameBatch}\n╰┈◉ 𝗧𝗜𝗗: ${id}\n`;
           }
         }
         fs.writeFileSync(approvedDataPath, JSON.stringify(approvedData, null, 2));
@@ -85,7 +85,7 @@ module.exports = {
           const threadInfoSearch = await api.getThreadInfo(groupId);
           const groupNameSearch = threadInfoSearch ? (threadInfoSearch.name || "Unnamed Group") : "Unnamed Group";
           if (groupNameSearch.includes(searchTerm) || groupId.includes(searchTerm)) {
-            searchMsg += `━━━━━━━[ ${index + 1} ]━━━━━━━\n🔰 𝗡𝗮𝗺𝗲➤ ${groupNameSearch}\n🆔 𝗜𝗗➤ ${groupId}\n`;
+            searchMsg += `━━━━━━━[ ${index + 1} ]━━━━━━━\n╰┈◉ 𝗡𝗮𝗺𝗲➤ ${groupNameSearch}\n╰┈◉ 𝗜𝗗➤ ${groupId}\n`;
           }
         }
         api.sendMessage(searchMsg, threadID, messageID);
@@ -97,7 +97,7 @@ module.exports = {
         } else if (approvedData.includes(idToApprove)) {
           const threadInfo = await api.getThreadInfo(idToApprove);
           const groupName = threadInfo.name || "Unnamed Group";
-          api.sendMessage(`💁🏻‍♂️ 𝗔𝗽𝗽𝗿𝗼𝘃𝗮𝗹 𝗦𝘆𝘀𝘁𝗲𝗺\n▬▬▬▬▬▬▬▬▬▬▬▬\n\n🔰 𝗚𝗿𝗼𝘂𝗽: ${groupName} | 𝗧𝗜𝗗: ${idToApprove} 𝘄𝗮𝘀 𝗮𝗹𝗿𝗲𝗮𝗱𝘆 𝗮𝗽𝗽𝗿𝗼𝘃𝗲𝗱!!`, threadID, messageID);
+          api.sendMessage(`💁🏻‍♂️ 𝗔𝗽𝗽𝗿𝗼𝘃𝗮𝗹 𝗦𝘆𝘀𝘁𝗲𝗺\n▬▬▬▬▬▬▬▬▬▬▬▬\n\n╰┈◉ 𝗚𝗿𝗼𝘂𝗽: ${groupName}\n╰┈◉𝗧𝗜𝗗: ${idToApprove} 𝘄𝗮𝘀 𝗮𝗹𝗿𝗲𝗮𝗱𝘆 𝗮𝗽𝗽𝗿𝗼𝘃𝗲𝗱!!`, threadID, messageID);
         } else {
           // Approve the group
           approvedData.push(idToApprove);
