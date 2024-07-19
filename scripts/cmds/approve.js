@@ -6,7 +6,7 @@ const approvedDataPath = "threadApproved.json";
 module.exports = {
   config: {
     name: "approve",
-    aliases: ["app","approved","approval","accept"],
+    aliases: ["app","approved","approval"],
     author: "Kyle", // don't change my credit
     countDown: 0,
     role: 2,
