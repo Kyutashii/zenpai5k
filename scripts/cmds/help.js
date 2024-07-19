@@ -225,4 +225,4 @@ function cropContent(content, max = 50) {
       }
 
 const wrapper = new GoatWrapper(module.exports);
-wrapper.applyNoPrefix({ allowPrefix: false });
+wrapper.applyNoPrefix({ allowPrefix: true });
