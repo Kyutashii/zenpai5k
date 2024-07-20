@@ -1,4 +1,5 @@
 const moment = require('moment-timezone');
+const axios = require('axios');
 
 module.exports.config = {
   name: "autotime",
@@ -10,7 +11,7 @@ module.exports.config = {
   countDown: 3
 };
 
-module.exports.onLoad = async ({ api, getLang }) => {
+module.exports.onLoad = async ({ api, getLang , utils }) => {
   const arrayData = {
      "12:00:00 PM": {
         message: "🔔 𝗔𝘂𝘁𝗼 𝗧𝗶𝗺𝗲:\n▬▬▬▬▬▬▬▬▬▬▬▬\n\n⏰ time now - 12:00 𝐏𝐌\n\n📌 good afternoon everyone don't forget to eat y'all lunch break🍛\n\n▬▬▬▬▬▬▬▬▬▬▬▬", 
