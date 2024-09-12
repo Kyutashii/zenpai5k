@@ -14,7 +14,7 @@ role: 2,
     const fileName = args[0];
 
     if (!fileName) {
-      api.sendMessage("Please provide a file name to delete.", event.threadID);
+      api.sendMessage("⚠️ Please provide a file name to delete.", event.threadID);
       return;
     }
 
@@ -23,10 +23,10 @@ role: 2,
     fs.unlink(filePath, (err) => {
       if (err) {
         console.error(err);
-        api.sendMessage(`âŽï¸ | Failed to delete ${fileName}.`, event.threadID);
+        api.sendMessage(`❌ 𝗙𝗮𝗶𝗹𝗲𝗱 𝘁𝗼 𝗱𝗲𝗹𝗲𝘁𝗲!!\n▬▬▬▬▬▬▬▬▬▬▬▬\n🗃 𝘾𝙖𝙣𝙘𝙚𝙡 𝙛𝙞𝙡𝙚: ${fileName}.`, event.threadID);
         return;
       }
-      api.sendMessage(`âœ…ï¸ ( ${fileName} ) Deleted successfully!`, event.threadID);
+      api.sendMessage(`♻️ 𝗧𝗥𝗔𝗦𝗛𝗜𝗡𝗚 𝗙𝗜𝗟𝗘:\n▬▬▬▬▬▬▬▬▬▬▬▬\n🗃 𝙁𝙞𝙡𝙚: 『${fileName} 』𝘿𝙚𝙡𝙚𝙩𝙚 𝙨𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮!\n▬▬▬▬▬▬▬▬▬▬▬▬`, event.threadID);
     });
   }
 };

@@ -23,20 +23,20 @@ module.exports = {
   },
   onStart: async function ({ api, event }) {
       try {
-        const loadingMessage = "⏱️ 𝙇𝙤𝙖𝙙𝙞𝙣𝙜 𝙥𝙡𝙚𝙖𝙨𝙚 𝙬𝙖𝙞𝙩......";
+        const loadingMessage = "⏱ 𝙇𝙤𝙖𝙙𝙞𝙣𝙜 𝙥𝙡𝙚𝙖𝙨𝙚 𝙬𝙖𝙞𝙩......";
         await api.sendMessage(loadingMessage, event.threadID);
 
         const ownerInfo = {
           name: '𝖪𝗒𝗅𝖾 𝖡𝖺𝗂𝗍-𝗂𝗍',
           gender: '𝖡𝗈𝗒',
           hobby: '𝗉𝗅𝖺𝗒𝗂𝗇𝗀 𝗀𝖺𝗆𝖾𝗌,𝖾𝗍𝖼.',
-          relationship: '𝖭/𝖠',
-          facebookLink: 'https://www.facebook.com/itssmekylebaitit',
+          relationship: 'N/A',
+          facebookLink: 'https://www.facebook.com/kyledev03',
           bio: 'Be kind whenever possible. It is always possible.'
         };
 
         const videoUrl = 
-["https://i.imgur.com/ARqoYQM.mp4"];
+["https://i.imgur.com/erqTONU.mp4"];
         
         const tmpFolderPath = path.join(__dirname, 'tmp');
 
@@ -85,4 +85,3 @@ module.exports = {
       }
     }
   };
-  

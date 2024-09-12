@@ -1,11 +1,13 @@
+const { GoatWrapper } = require('fca-liane-utils');
+ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 
 module.exports = {
   config: {
     name: "clean",
-    aliases: [],//["c"] add aliases like that 
-    author: "kshitiz",  
+    aliases: ["c","cl","th","trash"],//["c"] add aliases like that 
+    author: "kshitiz",//modified by Kyle
     version: "2.0",
     cooldowns: 5,
     role: 2,
@@ -25,7 +27,7 @@ module.exports = {
     const tmpFolderPath = path.join(__dirname, 'tmp');
 
 
-    api.sendMessage({ body: 'Cleaning cache and tmp folders...', attachment: null }, event.threadID, () => {
+    api.sendMessage({ body: '♻️𝘾𝙡𝙚𝙖𝙣𝙞𝙣𝙜\n▬▬▬▬▬▬▬▬▬▬▬▬\n𝙘𝙖𝙘𝙝𝙚 𝙖𝙣𝙙 𝙩𝙢𝙥 𝙛𝙤𝙡𝙙𝙚𝙧𝙨...', attachment: null }, event.threadID, () => {
 
       const cleanFolder = (folderPath) => {
 
@@ -58,7 +60,10 @@ module.exports = {
       cleanFolder(tmpFolderPath);
 
 
-      api.sendMessage({ body: 'Cache and tmp folders cleaned successfully!' }, event.threadID);
+      api.sendMessage({ body: '🚮𝗖𝗟𝗘𝗔𝗡𝗜𝗡𝗚\n▬▬▬▬▬▬▬▬▬▬▬▬\n𝘤𝘢𝘤𝘩𝘦 𝘢𝘯𝘥 𝘵𝘮𝘱 𝘧𝘰𝘭𝘥𝘦𝘳𝘴 𝘤𝘭𝘦𝘢𝘯𝘦𝘥 𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘧𝘶𝘭𝘭𝘺(◍•ᴗ•◍)!!' }, event.threadID);
     });
   },
 };
+
+const wrapper = new GoatWrapper(module.exports);
+wrapper.applyNoPrefix({ allowPrefix: false });

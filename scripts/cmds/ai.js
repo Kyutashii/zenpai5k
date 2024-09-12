@@ -1,10 +1,11 @@
+const { GoatWrapper } = require('fca-liane-utils');
 const axios = require('axios');
 const moment = require("moment-timezone");
 const manilaTime = moment.tz('Asia/Manila');
 const formattedDateTime = manilaTime.format('MMMM D, YYYY h:mm A');
 
 const Prefixes = [
-  'gpt',
+  'zep',
   'ai',
   'Robot',
   'bot',
@@ -14,8 +15,9 @@ const Prefixes = [
 module.exports = {
   config: {
     name: 'ai',
+    aliases: ["gpt4","zep","gpt3"],
     version: '2.5.4',
-    author: 'Kylepogi',//credits owner of this api
+    author: 'Kylepogiv3',//credits owner of this api
     role: 0,
     category: 'ai',
     shortDescription: {
@@ -65,10 +67,9 @@ module.exports = {
       if (response.status !== 200 || !response.data) {
         throw new Error('Invalid or missing response from API');
       }
-
       const messageText = response.data.reply.trim(); // Adjust according to the response structure of the new API
       const userName = getLang("final");
-      const finalMsg = `${userName}\n❍━━━━━━━━━━━━━━━━━━━━❏\n${messageText}\n❍━━━━━━━━━━━━━━━━━━━━❏\n📅 | ⏰ 𝗗𝗔𝗧𝗘 𝗔𝗡𝗗 𝗧𝗜𝗠𝗘 :\n${formattedDateTime}\n`;
+      const finalMsg = `${userName}\n❍━━━━━━━━━━━━━━━━━━━━❏\n💁🏻‍♂️𝗔𝗡𝗦𝗪𝗘𝗥: ${messageText}\n❍━━━━━━━━━━━━━━━━━━━━❏\n𝒶𝒹𝓂𝒾𝓃: https://www.facebook.com/kyledev03`;
       api.editMessage(finalMsg, loadingReply.messageID);
 
       console.log('Sent answer as a reply to user');
@@ -81,3 +82,5 @@ module.exports = {
     }
   },
 };
+const wrapper = new GoatWrapper(module.exports);
+wrapper.applyNoPrefix({ allowPrefix: false });

@@ -23,9 +23,9 @@ module.exports = {
 			session2: "noon",
 			session3: "afternoon",
 			session4: "evening",
-			leaveType1: "𝗹𝗲𝗳𝘁",
-			leaveType2: "𝘄𝗮𝘀 𝗸𝗶𝗰𝗸𝗲𝗱 𝗳𝗿𝗼𝗺",
-			defaultLeaveMessage: "𝗴𝗼𝗼𝗱 𝗯𝘆𝗲 𝗭𝗲𝗻𝗽𝗮𝗶 {userNameTag}.\n\n📜𝗿𝗲𝗮𝘀𝗼𝗻: {type} 𝘁𝗵𝗲 𝗴𝗿𝗼𝘂𝗽\n\nnagleft tama yan para ma-backstab ka namin pangit ka naman napilitan lang mga magulang mo palakihin ka, tamang tamang nagleft HAHAHAHA may matotopic kami sa gc gawin naming memes op mo hanapin namin ra mo walang dulot umalis display ka lang naman kala mo kung sino dapat sayo sinasako walang ambag sa gc namin layas dukha."
+			leaveType1: "𝗅𝖾𝖿𝗍",
+			leaveType2: "𝗐𝖺𝗌 𝗄𝗂𝖼𝗄𝖾𝖽 𝖿𝗋𝗈𝗆",
+			defaultLeaveMessage: "𝗚𝗼𝗼𝗱 𝗯𝘆𝗲 𝗦𝗲𝗻𝗽𝗮𝗶 {userNameTag}\n\n▬▬▬▬▬▬▬▬▬▬▬▬\n𝗥𝗲𝗮𝘀𝗼𝗻: {type} 𝗍𝗁𝖾 𝗀𝗋𝗈𝗎𝗉.\n▬▬▬▬▬▬▬▬▬▬▬▬\n𝑠𝑒𝑒 𝑦𝑜𝑢 𝑎𝑔𝑎𝑖𝑛 𝑢𝑠𝑒𝑟'𝑠 😁"
 		}
 	},
 

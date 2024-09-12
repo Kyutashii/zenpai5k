@@ -1,4 +1,5 @@
-const fs = require("fs-extra");
+const { GoatWrapper } = require('fca-liane-utils');
+ const fs = require("fs-extra");
 const axios = require("axios");
 const path = require("path");
 const { getPrefix } = global.utils;
@@ -9,7 +10,7 @@ module.exports = {
     config: {
         name: "help",
         version: "1.18",
-        author: "NTKhang",
+        author: "NTKhang x Kyle x Symer(MRKIMSTER)",
         countDown: 5,
         role: 0,
         shortDescription: {
@@ -222,3 +223,6 @@ function cropContent(content, max = 50) {
     }
     return content;
       }
+
+const wrapper = new GoatWrapper(module.exports);
+wrapper.applyNoPrefix({ allowPrefix: true });

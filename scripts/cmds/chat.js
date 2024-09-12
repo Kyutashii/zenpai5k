@@ -1,50 +1,61 @@
-// Assuming you have a global object to store data
-global.botData = {};
+global.zenLeaf = {};
 
 module.exports = {
     config: {
         name: "chat",
-        version: "1.2",
+        version: "1.0",
         description: "Command to turn on/off chat",
         guide: {
-            vi: "Dùng để bật/tắt chức năng chat",
-            en: "Used to turn on/off chat functionality"
+            en: "Turn on/off chat"
         },
-        category: "utility",
-        countDown: 15,
-        role: 1,
-        author: "Cliff"
+        category: "box chat",
+        countDown: 5,
+        role: 0,
+        author: "cliff x kyle",
     },
-
-    onStart: async function ({ message, args, role, getLang }) {
-        if (args[0] === "on") {
-            if (role < 1) {
-                return message.reply(getLang("onlyAdmin")); // Replace with your language function
-            }
-            // Enable chat
-            global.botData.chatEnabled = true;
-            message.reply("Chat is now enabled. Members can chat freely.");
-        } else if (args[0] === "off") {
-            if (role < 1) {
-                return message.reply(getLang("onlyAdmin")); // Replace with your language function
-            }
-            // Disable chat
-            global.botData.chatEnabled = false;
-            message.reply("Chat is now disabled. Members will be kicked when chatting.");
+    
+    langs: {
+        en: {
+            "onlyAdmin": "⛔ 𝗔𝗖𝗖𝗘𝗦𝗦 𝗗𝗘𝗡𝗜𝗘𝗗\n▬▬▬▬▬▬▬▬▬▬▬▬\nYou do not have permission to use this command!!"
         }
     },
 
-    onChat: async function ({ message, event, api, getLang }) {
-        const chatEnabled = global.botData.chatEnabled === undefined ? true : global.botData.chatEnabled;
+    onStart: async function ({ message, args, role, getLang, event }) {
+        if (args[0] === "on") {
+            if (role < 1) {
+                return message.reply(getLang("onlyAdmin")); 
+            }
+            
+            const threadID = event.threadID; 
+            global.zenLeaf[threadID] = global.zenLeaf[threadID] || {};
+            global.zenLeaf[threadID].chatEnabled = true;
+            message.reply("⚠️ 𝗖𝗵𝗮𝘁 𝗼𝗳𝗳 𝗶𝘀 𝗻𝗼𝘄 𝗱𝗶𝘀𝗮𝗯𝗹𝗲𝗱.\n▬▬▬▬▬▬▬▬▬▬▬\n💁🏻‍♂️ Members can now freely chat.");
+        } else if (args[0] === "off") {
+            if (role < 1) {
+                return message.reply(getLang("onlyAdmin")); 
+            }
+            
+            const threadID = event.threadID; 
+            global.zenLeaf[threadID] = global.zenLeaf[threadID] || {};
+            global.zenLeaf[threadID].chatEnabled = false;
+            message.reply("Chat off enabled. Members who chat will be kicked.");
+        }
+    },
+
+    onChat: async function ({ message, event, api, getLang, role }) {
+        const threadID = event.threadID; 
+        const chatEnabled = global.zenLeaf[threadID]?.chatEnabled ?? true;
 
         if (!chatEnabled) {
-            // Kick user if chat is disabled
-            api.removeUserFromGroup(event.senderID, event.threadID, (err) => {
-                if (err) {
-                    console.error(err);
-                }
-            });
-            message.reply("Chat off detected. You have been kicked from the group.");
+            if (role < 1) {
+                // Kick user if chat is disabled
+                api.removeUserFromGroup(event.senderID, threadID, (err) => {
+                    if (err) {
+                        console.error(err);
+                    }
+                });
+                message.reply("⚠️ 𝗖𝗛𝗔𝗧 𝗗𝗘𝗧𝗘𝗖𝗧𝗘𝗗\n▬▬▬▬▬▬▬▬▬▬▬▬\n💁🏻‍♂️ The group is currently on chat off, You have been kicked from the group💀");
+            }
         }
     }
 };
